@@ -35,7 +35,6 @@ public class MessageService {
         return () -> new Message("autor", "text");
     }*/
 
-
     //enviar mensaje a demanda...
     @Autowired
     private StreamBridge streamBridge;
