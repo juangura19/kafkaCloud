@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  kafka:
+    bootstrap-servers: moped-01.srvs.cloudkafka.com:9094,moped-02.srvs.cloudkafka.com:9094,moped-03.srvs.cloudkafka.com:9094
+    properties:
+      security:
+        protocol: SASL_SSL
+      sasl:
+        mechanism: SCRAM-SHA-256
+        jaas:
+          config: org.apache.kafka.common.security.scram.ScramLoginModule required username="d4yi0i5o" password="4umjRruxtYJJEzUWoew3j5d8yB7dJzm2";
+  cloud:
+    function:
+      definition: input;nttdata
+    stream:
+      bindings:
+        input-in-0:
+          destination: d4yi0i5o-default
+        nttdata-in-0:
+          destination: d4yi0i5o-nttdata
